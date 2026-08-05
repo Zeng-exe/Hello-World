@@ -1,0 +1,45 @@
+
+## Estrutura de Repetição 2
+filmes = [
+    "Toy Story",
+    "Homem Aranha",
+    "Vingadores",
+    "Harry Potter",
+    "Batman",
+]
+
+print("bem-vindo ao cinema")
+print("Você pode escolher entre os seguintes filmes:")
+for index, nome in enumerate(filmes, start=1):
+    print(f"Filme {index}: {nome}")
+print("Digite 0 para sair a qualquer momento.")
+
+while True:
+    escolha = input("Digite o número do filme que deseja assistir (1 a 5): ")
+    if escolha == "0":
+        print("Saindo do programa...")
+        break
+
+    if not escolha.isdigit() or not (1 <= int(escolha) <= len(filmes)):
+        print("Número inválido. Por favor, digite um número de 1 a 5 ou 0 para sair.")
+        continue
+
+    filme_index = int(escolha) - 1
+    filme_selecionado = filmes[filme_index]
+
+    while True:
+        classificacao = input(f"Digite a classificação do filme '{filme_selecionado}' de 1 a 5 (ou 0 para sair): ")
+        if classificacao == "0":
+            print("Saindo do programa...")
+            exit()
+
+        if not classificacao.isdigit() or not (1 <= int(classificacao) <= 5):
+            print("Classificação inválida. Por favor, digite um número de 1 a 5.")
+            continue
+
+        classificacao = int(classificacao)
+        print(f"Você escolheu o filme '{filme_selecionado}' com classificação {classificacao}.")
+        print("Obrigado por usar nosso sistema de cinema!") 
+        break
+    break
+
